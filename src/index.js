@@ -1,16 +1,11 @@
 const express = require("express");
-const app = express();
-// const routes = require("./routes/router");
+const router = require('./routes/index');
 const {APP_PORT, APP_NAME} = require('./util/appConfig');
+const app = express();
 
 app.use(express.json());
 
-
-app.get('/', (req, res) => res
-    .status(200)
-    .send({mensagem: 'Welcome to API'
-}));
-
+app.use("/", router);
 
 app.listen( APP_PORT, function () {
     console.log(`${APP_NAME} listening at http://localhost:${APP_PORT}`)
