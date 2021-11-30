@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     idade: DataTypes.STRING,
     cpf: DataTypes.STRING,
     endereco: DataTypes.STRING,
-    telefone: DataTypes.STRING,
+    telefone: DataTypes.INTEGER,
     genero_preferido: DataTypes.STRING
   }, 
   {

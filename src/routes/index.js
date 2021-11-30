@@ -1,5 +1,6 @@
 const express = require("express");
 const ClientesRouter = require('./clientesRoute');
+const LivrosRouter = require('./livrosRoute');
 const cors = require("cors");
 
 const router = express.Router();
@@ -19,5 +20,6 @@ router.get('/', function(req, res) {
 })
 
 router.use('/', ClientesRouter);
+router.use('/', LivrosRouter);
 
 module.exports = router;
