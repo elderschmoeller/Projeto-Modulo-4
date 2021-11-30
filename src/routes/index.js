@@ -21,11 +21,3 @@ router.get('/', function(req, res) {
 router.use('/', ClientesRouter);
 
 module.exports = router;
-
-
-// module.exports = app => {
-//   app.use((req, res, next) => {
-//     console.log(req.headers.host, new Date().toLocaleTimeString());
-//     next();
-//   });
-// };
