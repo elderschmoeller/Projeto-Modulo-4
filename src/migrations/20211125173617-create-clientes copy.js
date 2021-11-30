@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false,
       },
       genero: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       editora: {
