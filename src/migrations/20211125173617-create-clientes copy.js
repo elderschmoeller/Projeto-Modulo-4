@@ -25,25 +25,12 @@ module.exports = {
         allowNull: false,
       },
       preco: {
-        type: Sequelize.STRING
-      },
-      telefone: {
-        type: Sequelize.INTEGER
-      },
-      genero_preferido: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+        type: Sequelize.DECIMAL(5,2),
         allowNull: false,
-        type: Sequelize.DATE
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Clientes');
+    await queryInterface.dropTable('Livros');
   }
 };
