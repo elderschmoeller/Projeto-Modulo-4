@@ -19,6 +19,7 @@ router.get('/', function(req, res) {
   res.send('Welcome to ResiliaBooks API')
 })
 
+router.use('/', ClientesRouter);
 router.use('/', LivrosRouter);
 
 module.exports = router;
