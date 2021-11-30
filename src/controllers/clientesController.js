@@ -15,7 +15,7 @@ class ClientesController {
       const idClientes = await database.Clientes.findOne({
         where: { id: Number (id) },
       });
-      return res.status(200).json(idEntradas);
+      return res.status(200).json(idClientes);
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -35,12 +35,12 @@ class ClientesController {
     const novaInfo = req.body;
 
     try {
-      await database.Entradas.update(novaInfo, { where: { id: Number (id) } });
-      const infoAtualizada = await database.Entradas.findOne({
+      await database.Clientes.update(novaInfo, { where: { id: Number (id) } });
+      const infoAtt = await database.Clientes.findOne({
         where: { id: Number (id) },
       });
 
-      return res.status(200).json(infoAtualizada);
+      return res.status(200).json(infoAtt);
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -52,7 +52,7 @@ class ClientesController {
       await database.Clientes.destroy({
         where: { id: Number (id) },
       });
-      return res.status(200).json({ message: `id: ${id} foi excluido` });
+      return res.status(200).json({ message: `id: ${id} excluído com sucesso!` });
     } catch (error) {
       return res.status(500).json(error.message);
     }
