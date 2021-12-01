@@ -12,7 +12,7 @@ class CompraController {
   static async show(req, res) {
     const { id } = req.params;
     try {
-      const idCompras = await database.Compras.findOne({
+      const idCompras = await db.Compras.findOne({
         where: { id: Number (id) },
       });
       return res.status(200).json(idCompras);
@@ -23,7 +23,7 @@ class CompraController {
   static async save(req, res) {
     const novasCompras = req.body;
     try {
-      const createCompra = await database.Compras.create(novasCompras);
+      const createCompra = await db.Compras.create(novasCompras);
       return res.status(200).json(createCompra);
     } catch (error) {
       return res.status(500).json(error.message);
@@ -35,8 +35,8 @@ class CompraController {
     const novaInfo = req.body;
 
     try {
-      await database.Compras.update(novaInfo, { where: { id: Number (id) } });
-      const infoAtualizada = await database.Compras.findOne({
+      await db.Compras.update(novaInfo, { where: { id: Number (id) } });
+      const infoAtualizada = await db.Compras.findOne({
         where: { id: Number (id) },
       });
 
@@ -49,7 +49,7 @@ class CompraController {
   static async remove(req, res) {
     const { id } = req.params;
     try {
-      await database.Compras.destroy({
+      await db.Compras.destroy({
         where: { id: Number (id) },
       });
       return res.status(200).json({ message: `id: ${id} foi excluido` });

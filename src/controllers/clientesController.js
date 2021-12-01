@@ -12,7 +12,7 @@ class ClientesController {
   static async show(req, res) {
     const { id } = req.params;
     try {
-      const idClientes = await database.Clientes.findOne({
+      const idClientes = await db.Clientes.findOne({
         where: { id: Number (id) },
       });
       return res.status(200).json(idClientes);
@@ -23,7 +23,7 @@ class ClientesController {
   static async save(req, res) {
     const novosClientes = req.body;
     try {
-      const createClientes = await database.Clientes.create(novosClientes);
+      const createClientes = await db.Clientes.create(novosClientes);
       return res.status(200).json(createClientes);
     } catch (error) {
       return res.status(500).json(error.message);
@@ -35,8 +35,9 @@ class ClientesController {
     const novaInfo = req.body;
 
     try {
-      await database.Clientes.update(novaInfo, { where: { id: Number (id) } });
-      const infoAtt = await database.Clientes.findOne({
+      console.log(id)
+      const a = await db.Clientes.update({nome_completo:req.body.nome_completo}, { where: { id: Number (id) } });
+      const infoAtt = await db.Clientes.findOne({
         where: { id: Number (id) },
       });
 
@@ -49,7 +50,7 @@ class ClientesController {
   static async remove(req, res) {
     const { id } = req.params;
     try {
-      await database.Clientes.destroy({
+      await db.Clientes.destroy({
         where: { id: Number (id) },
       });
       return res.status(200).json({ message: `id: ${id} excluído com sucesso!` });
