@@ -1,6 +1,7 @@
 const express = require("express");
 const ClientesRouter = require('./clientesRoute');
 const LivrosRouter = require('./livrosRoute');
+const ComprasRouter = require ('./comprasRoute');
 const cors = require("cors");
 
 const router = express.Router();
@@ -21,5 +22,6 @@ router.get('/', function(req, res) {
 
 router.use('/', ClientesRouter);
 router.use('/', LivrosRouter);
+router.use('/', ComprasRouter);
 
 module.exports = router;
