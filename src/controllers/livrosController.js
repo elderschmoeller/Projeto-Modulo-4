@@ -1,10 +1,10 @@
 const db = require("../models/index");
 
-class CompraController {
+class LivroController {
   static async index(req, res) {
     try {
-      const allCompras = await db.Compras.findAll();
-      return res.status(200).json(allCompras);
+      const allLivros = await db.Livros.findAll();
+      return res.status(200).json(allLivros);
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -12,19 +12,19 @@ class CompraController {
   static async show(req, res) {
     const { id } = req.params;
     try {
-      const idCompras = await db.Compras.findOne({
+      const idLivros = await db.Livros.findOne({
         where: { id: Number (id) },
       });
-      return res.status(200).json(idCompras);
+      return res.status(200).json(idLivros);
     } catch (error) {
       return res.status(500).json(error.message);
     }
   }
   static async save(req, res) {
-    const novasCompras = req.body;
+    const novosLivros = req.body;
     try {
-      const createCompra = await db.Compras.create(novasCompras);
-      return res.status(200).json(createCompra);
+      const createLivro = await db.Livros.create(novosLivros);
+      return res.status(200).json(createLivro);
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -35,8 +35,8 @@ class CompraController {
     const novaInfo = req.body;
 
     try {
-      await db.Compras.update(novaInfo, { where: { id: Number (id) } });
-      const infoAtualizada = await db.Compras.findOne({
+      await db.Livros.update(novaInfo, { where: { id: Number (id) } });
+      const infoAtualizada = await db.Livros.findOne({
         where: { id: Number (id) },
       });
 
@@ -49,7 +49,7 @@ class CompraController {
   static async remove(req, res) {
     const { id } = req.params;
     try {
-      await db.Compras.destroy({
+      await db.Livros.destroy({
         where: { id: Number (id) },
       });
       return res.status(200).json({ message: `id: ${id} foi excluido` });
@@ -59,4 +59,4 @@ class CompraController {
   }
 }
 
-module.exports = CompraController;
+module.exports = LivroController;
