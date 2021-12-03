@@ -18,8 +18,16 @@ module.exports = {
         type: Sequelize.DECIMAL(5,2),
       },
       turno: {
-        type: Sequelize.STRING
-      }
+        type: Sequelize.STRING,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

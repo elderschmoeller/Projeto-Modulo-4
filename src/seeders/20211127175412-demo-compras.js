@@ -4,6 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert("Compras", [
       {
+        id_cliente: 8,
         nome_cliente: "Murilo Daniel Bernardes",
         id_livro: '36985',
         titulo_livro: 'Diário de uma paixão',
@@ -13,6 +14,7 @@ module.exports = {
         updatedAt: new Date(),
         },
       {
+        id_cliente: 9,
         nome_cliente: 'Gabrielly Letícia Mendes',
         id_livro: '41235',
         titulo_livro: 'O colecionador de ossos',
@@ -22,6 +24,7 @@ module.exports = {
         updatedAt: new Date(), 
       }, 
       {
+        id_cliente: 10,
         nome_cliente: 'Osvaldo Vitor da Silva',
         id_livro: '46972',
         titulo_livro: 'Duna',
@@ -31,6 +34,7 @@ module.exports = {
         updatedAt: new Date(), 
       },
       {
+        id_cliente: 11,
         nome_cliente: 'Agatha Isabelle Aparecida Dias',
         id_livro: '36214',
         titulo_livro: 'It-A coisa',
