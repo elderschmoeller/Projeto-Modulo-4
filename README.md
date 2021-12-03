@@ -4,7 +4,11 @@
 
 <h3> Sobre o projeto </h3>
 
-<p>Trata-se do desenvolvimento de uma API para uma livraria. Ela possui todas as rotas básicas do CRUD e faz parte do projeto final do quarto módulo do curso de Desenvolvimento Web da Resilia.</p>
+<p>Trata-se do desenvolvimento de uma API para uma livraria.Ela possui todas as rotas básicas do CRUD e faz parte do projeto final do quarto módulo do curso de Desenvolvimento Web da Resilia.</p>
+
+<p> Foram criadas quatro entidades conforme demonstra o diagrama a seguir: </p>
+
+![diagrama](https://user-images.githubusercontent.com/72519573/144657598-135fb5dd-be10-4cd5-8f94-2a9590ab6910.jpg)
 
 <h3> Dependências utilizadas para o desenvolvimento </h3>
 
@@ -43,7 +47,45 @@ $ git clone https://github.com/elderschmoeller/Projeto-Modulo-4.git
  npm install --save-dev nodemon
 
 ```
-<p>Em seguida, com o projeto já rodando em sua máquina, abra o Insomnia para testar as rotas GET, POST, PUTH e DELETE.</p>
+<p>Em seguida, com o projeto já rodando em sua máquina, abra o Insomnia para testar as rotas GET, POST, PUT e DELETE. Apenas a título de exemplo, vamos fazer um passo a passo a seguir utilizando a entidade Clientes.</p>
+
+<h3>Usando o GET</h3>
+
+- `/clientes`: Retorna as informações de todos os clientes salvos no banco de dados.
+
+<h3>Usando o POST</h3>
+
+- `/clientes`: Cria um cliente no banco de dados. É necessário enviar um body no formato JSON com as informações a seguir:
+  
+   ```javascript
+    {
+        "nome_completo": "",
+        "email":"",
+        "idade": "",
+        "cpf: "",
+        "endereco": "",
+        "telefone": ""
+    }
+  ```
+  
+<h3>Usando o PUT</h3>
+
+- `/clientes/:id`: Atualiza o nome, email, idade cpf, endereco, telefone do cliente com a `id` informada no banco de dados. Também é possível atualizar apenas uma dessas informações substindo o :id pelo atributo específico que deseja alterar. Caso não exista um cliente com a respectiva com a id é retornado um erro com status 404. É necessário enviar no body da requisição um JSON:
+
+  ```javascript
+    {
+        "nome_completo": "",
+        "email":"",
+        "idade": "",
+        "cpf: "",
+        "endereco": "",
+        "telefone": ""
+    }
+  ```
+
+<h3>Usando o DELETE</h3>
+
+- `/clientes/:id`: Remove o cliente com a `id` informada do banco de dados. Caso não exista um cliente com a respectiva id é retornado um erro com status 404.
 
 <h3>Equipe</h3>
 
